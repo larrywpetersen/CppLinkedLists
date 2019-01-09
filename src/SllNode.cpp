@@ -6,20 +6,19 @@ using namespace std;
 
 int SllNode::index = 0;
 
+//
+//
+/**************************************
+ * constructor and destructor
+ *************************************/
+
 SllNode::SllNode()
 {
-    // this->prtNext = nullptr;
-    // this->key = this->index++;
-    // cout << "SllNode " << this->getKey() << " constructed" << endl;
     init(this->index);
 }
 
 SllNode::SllNode(int key)
 {
-    // this->prtNext = nullptr;
-    // // this->key = this->index++;
-    // this->key = key;
-    // cout << "SllNode " << this->getKey() << " constructed" << endl;
     init(key);
 }
 
@@ -35,6 +34,12 @@ void SllNode::init(int key)
     this->index++;
     // cout << "SllNode " << this->getKey() << " constructed" << endl;
 }
+
+//
+//
+/**************************************
+ * getter and setter for node pointers
+ *************************************/
 
 void SllNode::setNext(SllNode *nptr)
 {
@@ -65,6 +70,12 @@ int SllNode::getIndex()
 {
     return this->index;
 }
+
+//
+//
+/**************************************
+ * management function
+ *************************************/
 
 // string ptrToString(SllNode *node)
 // {

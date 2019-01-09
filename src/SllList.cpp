@@ -3,6 +3,8 @@
 #include <iostream>
 using namespace std;
 
+int SllList::index = 0;
+
 //
 //
 /**************************************

@@ -13,12 +13,14 @@ private:
   SllNode *ptrSllNode_tail;
   long listLength;
 
+  static int index;
+
   //
   //
   /**************************************
-    * 
-    * private methos to deal with listLength
-    * 
+   * 
+   * private methos to deal with listLength
+   * 
   **************************************/
 
   void setListLength(long l);
@@ -42,8 +44,8 @@ public:
   //
   //
   /**************************************
- * constructor and destructor
-**************************************/
+   * constructor and destructor
+  **************************************/
 
   SllList();
   virtual ~SllList();
@@ -51,8 +53,8 @@ public:
   //
   //
   /**************************************
- * public methos - adding to the list
-**************************************/
+   * public methos - adding to the list
+  **************************************/
 
   void add(SllNode *);
   void insert(SllNode *);
@@ -61,8 +63,8 @@ public:
   //
   //
   /**************************************
- * public methos - Accessing the list
-**************************************/
+   * public methos - Accessing the list
+  **************************************/
 
   SllNode *getCurrent();
   SllNode *getNext();
@@ -75,8 +77,8 @@ public:
   //
   //
   /**************************************
- * public methos - management function
-**************************************/
+   * public methos - management function
+  **************************************/
 
   void clear();
   void resetToHead();

@@ -23,58 +23,99 @@ string errorMessage(int k, string fn, string s, string i)
     string msg = "\n\nproblem with " + fn + " of node ";
     msg += to_string(k) + "\n";
     msg += "    Should be '" + s;
-    msg += "' but is '" + i + "'\n";
+    msg += "'\n       but is '" + i + "'\n";
     return msg;
 }
 
-string testGetKey(SllNode tn, int k)
+string testGetKey(SllNode *tn, int k)
 {
-    if (tn.getKey() == k)
+    if (tn->getKey() == k)
     {
         return ".";
     }
-    return errorMessage(tn.getKey(),
+    return errorMessage(tn->getKey(),
                         "getKey",
                         to_string(k),
-                        to_string(tn.getKey()));
+                        to_string(tn->getKey()));
 }
 
-string testGetNext(SllNode tn, SllNode *dn)
+string testGetNext(SllNode *tn, SllNode *dn)
 {
-    if (tn.getNext() == dn)
+    if (tn->getNext() == dn)
     {
         return ".";
     }
-    return errorMessage(tn.getKey(),
+    return errorMessage(tn->getKey(),
                         "getNext",
                         SllNodeTest_ptrToString(dn),
-                        SllNodeTest_ptrToString(tn.getNext()));
+                        SllNodeTest_ptrToString(tn->getNext()));
+}
+
+string testIndex(SllNode *tn, int ind)
+{
+    if (tn->getIndex() == ind)
+    {
+        return ".";
+    }
+    return errorMessage(tn->getKey(),
+                        "Index",
+                        to_string(ind),
+                        to_string(tn->getIndex()));
+}
+
+string testTo_string(SllNode *tn, string sb)
+{
+    if (tn->to_string() == sb)
+    {
+        return ".";
+    }
+    return errorMessage(tn->getKey(),
+                        "to_string",
+                        sb,
+                        tn->to_string());
 }
 
 int SllNodeTest(bool verb)
 {
-    SllNode testNode1;     // testNode1 is 0
+    // **  test constructor
+    SllNode testNode1; // testNode1 is 0
+
+    // **  test constructor with an argument
     SllNode testNode2(42); // testNode2 is 42
 
+    // **  test setNext
     testNode1.setNext(&testNode2); // testNode1 points to testNode2
 
+    // **test setIndex
     testNode1.setIndex(25);
     SllNode testNode3; // testNode3 is 25
+
+    // **test that Index updates when set
     SllNode testNode4;
 
+    // **test setNext
     testNode4.setNext(&testNode2); // testNode4 points to testNode2
 
+    // **test setKey
     testNode4.setKey(100); // testNode4 is 100
 
-    cout << testGetNext(testNode1, &testNode2);
-    cout << testGetNext(testNode2, nullptr);
-    cout << testGetNext(testNode3, nullptr);
-    cout << testGetNext(testNode4, &testNode2);
+    cout << testGetKey(&testNode1, 0);
+    cout << testGetKey(&testNode2, 42);
+    cout << testGetKey(&testNode3, 25);
+    cout << testGetKey(&testNode4, 100);
 
-    cout << testGetKey(testNode1, 0);
-    cout << testGetKey(testNode2, 42);
-    cout << testGetKey(testNode3, 25);
-    cout << testGetKey(testNode4, 100);
+    cout << testGetNext(&testNode1, &testNode2);
+    cout << testGetNext(&testNode2, nullptr);
+    cout << testGetNext(&testNode3, nullptr);
+    cout << testGetNext(&testNode4, &testNode2);
+
+    cout << testIndex(&testNode1, 27);
+
+    // **test to_string
+    string sb;
+    sb = "Node at " + SllNodeTest_ptrToString(&testNode1);
+    sb += " - key=0 - next=" + SllNodeTest_ptrToString(&testNode2);
+    cout << testTo_string(&testNode1, sb);
 
     cout << endl
          << endl;
@@ -97,4 +138,15 @@ int SllNodeTest(bool verb)
     }
 
     return 0;
+
+    /******************************************************
+     * 
+     * Untested
+     * 
+     *     destructor
+     * 
+     *     init() - tested indirectly since constructors us it
+     * 
+     * 
+     * ***************************************************/
 }
