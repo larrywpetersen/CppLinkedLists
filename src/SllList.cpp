@@ -1,15 +1,16 @@
-#include "SllList.hpp"
-
+#include <sstream>
 #include <iostream>
 using namespace std;
 
-int SllList::index = 0;
+#include <SllList.hpp>
+
+long SllList::index = 0;
 
 //
 //
 /**************************************
  * 
- * private methos to deal with listLength
+ * private methods to deal with listLength
  * 
 **************************************/
 
@@ -31,8 +32,18 @@ void SllList::incListLength()
 //
 //
 /**************************************
- * private methos - getter and setter for node pointers
+ * private methods - getter and setter for node pointers
 **************************************/
+
+SllNode *SllList::getHead()
+{
+    return this->ptrSllNode_head;
+}
+
+SllNode *SllList::getTail()
+{
+    return this->ptrSllNode_tail;
+}
 
 void SllList::setHead(SllNode *ptrHead)
 {
@@ -49,16 +60,6 @@ void SllList::setTail(SllNode *ptrTail)
     this->ptrSllNode_tail = ptrTail;
 }
 
-SllNode *SllList::getHead()
-{
-    return this->ptrSllNode_head;
-}
-
-SllNode *SllList::getTail()
-{
-    return this->ptrSllNode_tail;
-}
-
 //
 //
 /**************************************
@@ -67,21 +68,63 @@ SllNode *SllList::getTail()
 
 SllList::SllList()
 {
+    this->init(this->index);
+    // cout << "SllList " + std::to_string(this->getKey()) + " constructed" << endl;
+}
+
+SllList::SllList(long key)
+{
+    this->init(key);
+    // cout << "SllList " + std::to_string(this->getKey()) + " constructed" << endl;
+}
+
+void SllList::init(long key)
+{
     this->setHead(nullptr);
     this->setTail(nullptr);
     this->setCurrent(nullptr);
     this->setListLength(0);
+    // cout << "setting key to " << key << endl;
+    this->setKey(key);
+    // cout << "index was " << this->index << endl;
+    this->index++;
+    // cout << "index  is " << this->index << endl;
 }
 
 SllList::~SllList()
 {
-    cout << "SllList destroyed" << endl;
+    // cout << "SllList " + std::to_string(this->getKey()) + " destructed" << endl;
 }
 
 //
 //
 /**************************************
- * public methos - adding to the list
+ * public methods - getter and setter
+ *************************************/
+
+long SllList::getKey()
+{
+    return this->key;
+}
+long SllList::getIndex()
+{
+    return this->index;
+}
+
+void SllList::setKey(long key)
+{
+    this->key = key;
+}
+
+void SllList::setIndex(long index)
+{
+    this->index = index;
+}
+
+//
+//
+/**************************************
+ * public methods - adding to the list
 **************************************/
 
 void SllList::add(SllNode *ptrNew)
@@ -151,7 +194,7 @@ void SllList::insert(SllNode *ptrNew, int n)
 //
 //
 /**************************************
- * public methos - Accessing the list
+ * public methods - Accessing the list
 **************************************/
 
 SllNode *SllList::getCurrent()
@@ -222,7 +265,7 @@ int SllList::findKey(int k)
 //
 //
 /**************************************
- * public methos - management function
+ * public methods - management function
 **************************************/
 
 void SllList::clear() {}
@@ -234,7 +277,9 @@ void SllList::resetToHead()
 
 bool SllList::isEmpty()
 {
-    if (this->getCurrent() == nullptr)
+    if ((this->getCurrent() == nullptr) &&
+        (this->getHead() == nullptr) &&
+        (this->getTail() == nullptr))
     {
         return true;
     }
@@ -256,5 +301,34 @@ int SllList::length()
 
 string SllList::to_string()
 {
-    return "This is the SllList.to_string() method.";
+    string msg;
+    SllList *lNode;
+    string addr;
+
+    lNode = this;
+    if (lNode == nullptr)
+    {
+        addr = "nullptr";
+    }
+    else
+    {
+        std::ostringstream address;
+        address << (void const *)lNode;
+        addr = address.str();
+    }
+    msg = "List " + std::to_string(this->getKey()) +
+          " at " + addr + " is " + std::to_string(this->length()) +
+          " long\n";
+
+    if (!this->isEmpty())
+    {
+        SllNode *nNode;
+        nNode = this->getHead();
+        while (nNode != nullptr)
+        {
+            msg += "    " + nNode->to_string() + "\n";
+            nNode = nNode->getNext();
+        }
+    }
+    return msg;
 }

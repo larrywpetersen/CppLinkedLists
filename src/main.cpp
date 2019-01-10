@@ -9,6 +9,10 @@ using namespace std;
 #include <SllList.hpp>
 
 #include <SllNodeTest.hpp>
+#include <SllListTest.hpp>
+
+#include <person.hpp>
+#include <personList.hpp>
 
 void printList(SllList *ptrTestList)
 {
@@ -26,17 +30,49 @@ void printList(SllList *ptrTestList)
 // int main(int argc, char *argv[])
 int main()
 {
-     cout << endl
-          << "Testing SllNode:" << endl
-          << endl;
 
-     SllNodeTest(false);
+     Person me("Larry", "Petersen");
 
-     cout << endl
-          << "Done testing SllNode:" << endl
-          << endl;
+     cout << me.to_string() << endl;
 
-     return 0;
+     me.setAddress1("789 Marinus Ln.");
+     me.setCity("Pocatello");
+     me.setState("Idaho");
+     me.setZip("83201");
+
+     cout << me.to_string() << endl;
+
+     Person becky("Becky", "Petersen");
+
+     PersonList family;
+
+     cout << "Sie of family is " << family.length() << endl;
+
+     family.add(me);
+     family.add(becky);
+
+     cout << "Sie of family is " << family.length() << endl;
+     cout << "family.to_string - " << family.to_string() << endl;
+
+     // cout << endl
+     //      << "Testing SllNode:" << endl
+     //      << endl;
+
+     // SllNodeTest(false);
+
+     // cout << endl
+     //      << "Done testing SllNode:" << endl
+     //      << endl;
+
+     // cout << endl
+     //      << "Testing SllList:" << endl
+     //      << endl;
+
+     // SllListTest(false);
+
+     // cout << endl
+     //      << "Done testing SllList:" << endl
+     //      << endl;
 
      //      SllList testList;
      //      SllList *ptrTestList = &testList;

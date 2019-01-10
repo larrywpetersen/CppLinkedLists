@@ -11,15 +11,16 @@ private:
   SllNode *ptrSllNode_head;
   SllNode *ptrSllNode_current;
   SllNode *ptrSllNode_tail;
+  long key;
   long listLength;
 
-  static int index;
+  static long index;
 
   //
   //
   /**************************************
    * 
-   * private methos to deal with listLength
+   * private methods to deal with listLength
    * 
   **************************************/
 
@@ -30,31 +31,45 @@ private:
   //
   //
   /**************************************
-   * private methos - getter and setter for node pointers
-  **************************************/
+   * private methods - getter and setter
+   *************************************/
+
+  SllNode *getHead();
+  SllNode *getTail();
 
   void setHead(SllNode *);
   void setCurrent(SllNode *);
   void setTail(SllNode *);
-
-  SllNode *getHead();
-  SllNode *getTail();
 
 public:
   //
   //
   /**************************************
    * constructor and destructor
-  **************************************/
+   *************************************/
 
   SllList();
+  SllList(long);
   virtual ~SllList();
+  void init(long);
 
   //
   //
   /**************************************
-   * public methos - adding to the list
-  **************************************/
+   * public methods - getter and setter
+   *************************************/
+
+  long getKey();
+  long getIndex();
+
+  void setKey(long);
+  void setIndex(long);
+
+  //
+  //
+  /**************************************
+   * public methods - adding to the list
+   *************************************/
 
   void add(SllNode *);
   void insert(SllNode *);
@@ -63,12 +78,13 @@ public:
   //
   //
   /**************************************
-   * public methos - Accessing the list
-  **************************************/
+   * public methods - Accessing the list
+   *************************************/
 
-  SllNode *getCurrent();
-  SllNode *getNext();
-  SllNode *getNode(int);
+  virtual SllNode *getCurrent();
+  virtual SllNode *getNext();
+  virtual SllNode *getNode(int);
+
   void moveTo(int);
 
   int find(int);
@@ -77,12 +93,12 @@ public:
   //
   //
   /**************************************
-   * public methos - management function
-  **************************************/
+   * public methods - management function
+   *************************************/
 
   void clear();
   void resetToHead();
   bool isEmpty();
   int length();
-  string to_string();
+  virtual string to_string();
 };

@@ -8,41 +8,41 @@ class SllNode
 
 private:
   SllNode *prtNext;
-  int key;
+  long key;
 
-  static int index;
+  static long index;
 
 public:
   //
   //
   /**************************************
    * constructor and destructor
-  **************************************/
+   *************************************/
 
   SllNode();
-  SllNode(int);
+  SllNode(long);
   virtual ~SllNode();
-  void init(int);
+  void init(long);
 
   //
   //
   /**************************************
-   * getter and setter for node pointers
-  **************************************/
-
-  virtual void setNext(SllNode *);
-  virtual void setKey(int);
-  virtual void setIndex(int);
+   * getters and setters
+   *************************************/
 
   virtual SllNode *getNext();
-  virtual int getKey();
-  virtual int getIndex();
+  virtual long getKey();
+  virtual long getIndex();
+
+  virtual void setNext(SllNode *);
+  virtual void setKey(long);
+  virtual void setIndex(long);
 
   //
   //
   /**************************************
    * management function
-  **************************************/
+   *************************************/
 
   virtual string to_string();
 };

@@ -1,10 +1,10 @@
-#include "SllNode.hpp"
-
 #include <sstream>
 #include <iostream>
 using namespace std;
 
-int SllNode::index = 0;
+#include <SllNode.hpp>
+
+long SllNode::index = 0;
 
 //
 //
@@ -17,7 +17,7 @@ SllNode::SllNode()
     init(this->index);
 }
 
-SllNode::SllNode(int key)
+SllNode::SllNode(long key)
 {
     init(key);
 }
@@ -27,7 +27,7 @@ SllNode::~SllNode()
     // cout << "SllNode " << this->getKey() << " destructed" << endl;
 }
 
-void SllNode::init(int key)
+void SllNode::init(long key)
 {
     this->prtNext = nullptr;
     this->key = key;
@@ -38,37 +38,37 @@ void SllNode::init(int key)
 //
 //
 /**************************************
- * getter and setter for node pointers
+ * getters and setters
  *************************************/
-
-void SllNode::setNext(SllNode *nptr)
-{
-    this->prtNext = nptr;
-}
-
-void SllNode::setKey(int key)
-{
-    this->key = key;
-}
-
-void SllNode::setIndex(int index)
-{
-    this->index = index;
-}
 
 SllNode *SllNode::getNext()
 {
     return this->prtNext;
 }
 
-int SllNode::getKey()
+long SllNode::getKey()
 {
     return this->key;
 }
 
-int SllNode::getIndex()
+long SllNode::getIndex()
 {
     return this->index;
+}
+
+void SllNode::setNext(SllNode *nptr)
+{
+    this->prtNext = nptr;
+}
+
+void SllNode::setKey(long key)
+{
+    this->key = key;
+}
+
+void SllNode::setIndex(long index)
+{
+    this->index = index;
 }
 
 //

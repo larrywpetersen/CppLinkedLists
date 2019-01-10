@@ -5,4 +5,4 @@ using namespace std;
 
 #include <SllList.hpp>
 
-int SllNodeTest(bool);
+int SllListTest(bool);
