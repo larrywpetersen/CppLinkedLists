@@ -31,48 +31,48 @@ void printList(SllList *ptrTestList)
 int main()
 {
 
-     Person me("Larry", "Petersen");
+     // Person me("Larry", "Petersen");
 
-     cout << me.to_string() << endl;
+     // cout << me.to_string() << endl;
 
-     me.setAddress1("789 Marinus Ln.");
-     me.setCity("Pocatello");
-     me.setState("Idaho");
-     me.setZip("83201");
+     // me.setAddress1("789 Marinus Ln.");
+     // me.setCity("Pocatello");
+     // me.setState("Idaho");
+     // me.setZip("83201");
 
-     cout << me.to_string() << endl;
+     // cout << me.to_string() << endl;
 
-     Person becky("Becky", "Petersen");
+     // Person becky("Becky", "Petersen");
 
-     PersonList family;
+     // PersonList family;
 
-     cout << "Sie of family is " << family.length() << endl;
+     // cout << "Sie of family is " << family.length() << endl;
 
-     family.add(me);
-     family.add(becky);
+     // family.add(me);
+     // family.add(becky);
 
-     cout << "Sie of family is " << family.length() << endl;
-     cout << "family.to_string - " << family.to_string() << endl;
+     // cout << "Sie of family is " << family.length() << endl;
+     // cout << "family.to_string - " << family.to_string() << endl;
 
-     // cout << endl
-     //      << "Testing SllNode:" << endl
-     //      << endl;
+     cout << endl
+          << "Testing SllNode:" << endl
+          << endl;
 
-     // SllNodeTest(false);
+     SllNodeTest(false);
 
-     // cout << endl
-     //      << "Done testing SllNode:" << endl
-     //      << endl;
+     cout << endl
+          << "Done testing SllNode:" << endl
+          << endl;
 
-     // cout << endl
-     //      << "Testing SllList:" << endl
-     //      << endl;
+     cout << endl
+          << "Testing SllList:" << endl
+          << endl;
 
-     // SllListTest(false);
+     SllListTest(false);
 
-     // cout << endl
-     //      << "Done testing SllList:" << endl
-     //      << endl;
+     cout << endl
+          << "Done testing SllList:" << endl
+          << endl;
 
      //      SllList testList;
      //      SllList *ptrTestList = &testList;
