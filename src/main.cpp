@@ -27,12 +27,35 @@ void printList(SllList *ptrTestList)
      }
 }
 
+void testSllNode(bool verb)
+{
+     cout << endl
+          << "Testing SllNode:" << endl
+          << endl;
+
+     SllNodeTest(verb);
+
+     cout << "Done testing SllNode:" << endl
+          << endl;
+}
+void testSllList(bool verb)
+{
+     cout
+         << endl
+         << "Testing SllList:" << endl
+         << endl;
+
+     SllListTest(verb);
+
+     cout << "Done testing SllList:" << endl
+          << endl;
+}
+
 // int main(int argc, char *argv[])
 int main()
 {
 
      // Person me("Larry", "Petersen");
-
      // cout << me.to_string() << endl;
 
      // me.setAddress1("789 Marinus Ln.");
@@ -40,139 +63,28 @@ int main()
      // me.setState("Idaho");
      // me.setZip("83201");
 
+     // Person you("Becky", "Petersen");
      // cout << me.to_string() << endl;
 
-     // Person becky("Becky", "Petersen");
+     // // me.setNext(&you);
 
-     // PersonList family;
+     // cout << endl
+     //      << "me:" << endl;
 
-     // cout << "Sie of family is " << family.length() << endl;
+     // // cout << "getKey - " << me.getKey() << endl;
+     // // cout << "getNext - " << me.getNext() << endl;
+     // // cout << "getIndex - " << me.getIndex() << endl;
 
-     // family.add(me);
-     // family.add(becky);
+     // cout << endl
+     //      << "you:" << endl;
 
-     // cout << "Sie of family is " << family.length() << endl;
-     // cout << "family.to_string - " << family.to_string() << endl;
+     // cout << "getKey - " << you.getKey() << endl;
+     // cout << "getNext - " << you.getNext() << endl;
+     // cout << "getIndex - " << you.getIndex() << endl;
 
-     cout << endl
-          << "Testing SllNode:" << endl
-          << endl;
+     testSllNode(false);
 
-     SllNodeTest(false);
+     testSllList(false);
 
-     cout << endl
-          << "Done testing SllNode:" << endl
-          << endl;
-
-     cout << endl
-          << "Testing SllList:" << endl
-          << endl;
-
-     SllListTest(false);
-
-     cout << endl
-          << "Done testing SllList:" << endl
-          << endl;
-
-     //      SllList testList;
-     //      SllList *ptrTestList = &testList;
-
-     //      cout << endl
-     //           << "List not built yet - " << endl
-     //           << "length of testList - " << testList.length() << endl;
-
-     //      SllNode *ptrNode;
-     //      int i;
-     //      for (i = 0; i < 10; i++)
-     //      {
-     //           ptrNode = new SllNode;
-     //           testList.add(ptrNode);
-     //      }
-
-     //      cout << endl
-     //           << "List has been built - " << endl
-     //           << "length of testList - " << testList.length() << endl;
-
-     //      printList(ptrTestList);
-
-     //      ptrTestList->reset();
-     //      for (i = 0; i < 3; i++)
-     //      {
-     //           ptrTestList->getNext();
-     //      }
-
-     //      ptrNode = new SllNode;
-     //      ptrNode->setKey(20);
-     //      testList.insert(ptrNode);
-
-     //      ptrNode = new SllNode;
-     //      // ptrNode->setKey(35);
-     //      testList.insert(ptrNode, 6);
-
-     //      ptrNode = new SllNode;
-     //      // ptrNode->setKey(35);
-     //      testList.insert(ptrNode, 100);
-
-     //      cout << endl
-     //           << "Two have been added - " << endl
-     //           << "length of testList - " << testList.length() << endl;
-
-     //      printList(ptrTestList);
-
-     //      int n = 8;
-
-     //      ptrNode = testList.getNode(n);
-
-     //      cout << endl
-     //           << n << "th node is " << ptrNode->getKey() << endl;
-
-     //      struct rusage *usage; // = nullptr;
-     //      __rusage_who_t who = 0;
-
-     //      cout << endl
-     //           << "size of SllNode - " << sizeof(ptrNode) << endl;
-
-     //      getrusage(who, usage);
-     //      cout << endl
-     //           << "Node not yet constructed" << endl
-     //           << "ru_idrss - " << usage->ru_idrss << endl
-     //           << "ru_isrss - " << usage->ru_isrss << endl
-     //           << "ptrNode - " << ptrNode << endl
-     //           << "   key = " << ptrNode->getKey() << endl;
-
-     //      ptrNode = new SllNode;
-
-     //      getrusage(who, usage);
-     //      cout << endl
-     //           << "just constructed" << endl
-     //           << "ru_idrss - " << usage->ru_idrss << endl
-     //           << "ru_isrss - " << usage->ru_isrss << endl
-     //           << "ptrNode - " << ptrNode << endl
-     //           << "   key = " << ptrNode->getKey() << endl;
-
-     //      ptrNode->~SllNode();
-
-     //      getrusage(who, usage);
-     //      cout << endl
-     //           << "just destructed" << endl
-     //           << "ru_idrss - " << usage->ru_idrss << endl
-     //           << "ru_isrss - " << usage->ru_isrss << endl
-     //           << "ptrNode - " << ptrNode << endl
-     //           << "   key = " << ptrNode->getKey() << endl;
-
-     //      delete (ptrNode);
-
-     //      getrusage(who, usage);
-     //      cout << endl
-     //           << "just deleted" << endl
-     //           << "ru_idrss - " << usage->ru_idrss << endl
-     //           << "ru_isrss - " << usage->ru_isrss << endl
-     //           << "ptrNode - " << ptrNode << endl
-     //           << "   key = " << ptrNode->getKey() << endl;
-
-     //      cout << endl;
-
-     //      cout << endl;
-
-     // cout << "Hello Easy C++ project!" << endl;
+     return 0;
 }

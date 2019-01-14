@@ -10,7 +10,7 @@ using namespace std;
  * constructor and destructor
  *************************************/
 
-Person::Person()
+Person::Person() // : SllNode()
 {
     init("", "", "", "", "", "", "");
 }
@@ -47,32 +47,26 @@ void Person::init(string first, string last,
  *************************************/
 
 string Person::getFirstName() { return this->firstName; }
-
 string Person::getLastName() { return this->lastName; }
-
 string Person::getAddress1() { return this->address1; }
-
 string Person::getAddress2() { return this->address2; }
-
 string Person::getCity() { return this->city; }
-
 string Person::getState() { return this->state; }
-
 string Person::getZip() { return this->zip; }
 
 void Person::setFirstName(string firstName) { this->firstName = firstName; }
-
 void Person::setLastName(string lastName) { this->lastName = lastName; }
-
 void Person::setAddress1(string address1) { this->address1 = address1; }
-
 void Person::setAddress2(string address2) { this->address2 = address2; }
-
 void Person::setCity(string city) { this->city = city; }
-
 void Person::setState(string state) { this->state = state; }
-
 void Person::setZip(string zip) { this->zip = zip; }
+
+string Person::getName() { return this->getFirstName() + " " + this->getLastName(); }
+string Person::getAddress()
+{
+    return "hi";
+}
 
 //
 //
@@ -80,7 +74,8 @@ void Person::setZip(string zip) { this->zip = zip; }
    * management function
    *************************************/
 
-string Person::to_string()
+string
+Person::to_string()
 {
     string msg = "(";
     msg += this->getFirstName() + ' ' + this->getLastName() + ", ";

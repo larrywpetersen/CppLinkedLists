@@ -6,20 +6,20 @@ using namespace std;
 #include <person.hpp>
 #include <personList.hpp>
 
-Person *PersonList::getCurrent()
-{
-    return new Person;
-}
+// Person *PersonList::getCurrent()
+// {
+//     return new Person;
+// }
 
-Person *PersonList::getNext()
-{
-    return new Person;
-}
+// Person *PersonList::getNext()
+// {
+//     return new Person;
+// }
 
-Person *PersonList::getNode(int)
-{
-    return new Person;
-}
+// Person *PersonList::getNode(int)
+// {
+//     return new Person;
+// }
 
 //
 //

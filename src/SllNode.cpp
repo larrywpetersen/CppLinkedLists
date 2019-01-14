@@ -4,7 +4,10 @@ using namespace std;
 
 #include <SllNode.hpp>
 
-long SllNode::index = 0;
+// using keyType = long;
+// using indexType = int;
+
+indexType SllNode::index = 0;
 
 //
 //
@@ -14,25 +17,36 @@ long SllNode::index = 0;
 
 SllNode::SllNode()
 {
-    init(this->index);
+    init(this->index, nullptr);
 }
 
-SllNode::SllNode(long key)
+SllNode::SllNode(keyType key)
 {
-    init(key);
+    init(key, nullptr);
+}
+
+SllNode::SllNode(void *data)
+{
+    init(this->index, data);
+}
+
+SllNode::SllNode(keyType key, void *data)
+{
+    init(key, data);
+}
+
+void SllNode::init(keyType key, void *data)
+{
+    this->prtNext = nullptr;
+    this->key = key;
+    this->data = data;
+    this->index++;
+    // cout << "SllNode " << this->getKey() << " constructed" << endl;
 }
 
 SllNode::~SllNode()
 {
     // cout << "SllNode " << this->getKey() << " destructed" << endl;
-}
-
-void SllNode::init(long key)
-{
-    this->prtNext = nullptr;
-    this->key = key;
-    this->index++;
-    // cout << "SllNode " << this->getKey() << " constructed" << endl;
 }
 
 //
@@ -41,19 +55,29 @@ void SllNode::init(long key)
  * getters and setters
  *************************************/
 
+void *SllNode::getData()
+{
+    return this->data;
+}
+
 SllNode *SllNode::getNext()
 {
     return this->prtNext;
 }
 
-long SllNode::getKey()
+keyType SllNode::getKey()
 {
     return this->key;
 }
 
-long SllNode::getIndex()
+indexType SllNode::getIndex()
 {
     return this->index;
+}
+
+void SllNode::setData(void *data)
+{
+    this->data = data;
 }
 
 void SllNode::setNext(SllNode *nptr)
@@ -61,12 +85,12 @@ void SllNode::setNext(SllNode *nptr)
     this->prtNext = nptr;
 }
 
-void SllNode::setKey(long key)
+void SllNode::setKey(keyType key)
 {
     this->key = key;
 }
 
-void SllNode::setIndex(long index)
+void SllNode::setIndex(indexType index)
 {
     this->index = index;
 }
@@ -77,49 +101,38 @@ void SllNode::setIndex(long index)
  * management function
  *************************************/
 
-// string ptrToString(SllNode *node)
-// {
-//     if (node == nullptr)
-//     {
-//         return "nullptr";
-//     }
-//     std::ostringstream address;
-//     address << (void const *)node;
-//     return address.str();
-// }
+string SllNodePtrToString(SllNode *node)
+{
+    if (node == nullptr)
+    {
+        return "nullptr";
+    }
+    std::ostringstream address;
+    address << (void const *)node;
+    return address.str();
+}
 
 string SllNode::to_string()
 {
     string msg;
-    SllNode *node;
+    // SllNode *node;
     string addr;
 
-    node = this;
-    if (node == nullptr)
-    {
-        addr = "nullptr";
-    }
-    else
-    {
-        std::ostringstream address;
-        address << (void const *)node;
-        addr = address.str();
-    }
-    msg = "Node at " + addr;
+    msg = "Node at " + SllNodePtrToString(this);
 
-    node = this->getNext();
-    if (node == nullptr)
-    {
-        addr = "nullptr";
-    }
-    else
-    {
-        std::ostringstream address;
-        address << (void const *)node;
-        addr = address.str();
-    }
+    // node = this->getNext();
+    // if (node == nullptr)
+    // {
+    //     addr = "nullptr";
+    // }
+    // else
+    // {
+    //     std::ostringstream address;
+    //     address << (void const *)node;
+    //     addr = address.str();
+    // }
 
     msg += " - key=" + std::to_string(this->getKey());
-    msg += " - next=" + addr;
+    msg += " - next=" + SllNodePtrToString(this->getNext());
     return msg;
 }

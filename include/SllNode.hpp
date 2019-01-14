@@ -3,14 +3,19 @@
 #include <iostream>
 using namespace std;
 
+using keyType = long;
+using indexType = int;
+
+// template <class T>
 class SllNode
 {
 
 private:
   SllNode *prtNext;
-  long key;
+  keyType key;
+  void *data;
 
-  static long index;
+  static indexType index;
 
 public:
   //
@@ -20,9 +25,12 @@ public:
    *************************************/
 
   SllNode();
-  SllNode(long);
+  SllNode(keyType);
+  SllNode(void *);
+  SllNode(keyType, void *);
+  void init(keyType, void *);
+
   virtual ~SllNode();
-  void init(long);
 
   //
   //
@@ -30,13 +38,15 @@ public:
    * getters and setters
    *************************************/
 
+  virtual void *getData();
   virtual SllNode *getNext();
-  virtual long getKey();
-  virtual long getIndex();
+  virtual keyType getKey();
+  virtual indexType getIndex();
 
+  virtual void setData(void *);
   virtual void setNext(SllNode *);
-  virtual void setKey(long);
-  virtual void setIndex(long);
+  virtual void setKey(keyType);
+  virtual void setIndex(indexType);
 
   //
   //

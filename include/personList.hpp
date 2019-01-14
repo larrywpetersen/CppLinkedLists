@@ -7,25 +7,25 @@ using namespace std;
 
 class PersonList : public SllList
 {
-  private:
-    int test;
+private:
+  int test;
 
-  public:
-    //
-    //
-    /**************************************
+public:
+  //
+  //
+  /**************************************
      * getters and setters
      *************************************/
 
-    virtual Person *getCurrent();
-    virtual Person *getNext();
-    virtual Person *getNode(int);
+  // virtual Person *getCurrent();
+  // virtual Person *getNext();
+  // virtual Person *getNode(int);
 
-    //
-    //
-    /**************************************
+  //
+  //
+  /**************************************
      * public methods - management function
      *************************************/
 
-    virtual string to_string();
+  virtual string to_string();
 };

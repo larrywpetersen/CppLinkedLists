@@ -77,6 +77,12 @@ string testTo_string(SllNode *tn, string sb)
 
 int SllNodeTest(bool verb)
 {
+    // make sure SllNode index is back to a known - 0
+    SllNode *tmpNode;
+    tmpNode = new SllNode;
+    tmpNode->setIndex(0);
+    delete (tmpNode);
+
     // **  test constructor
     SllNode testNode1; // testNode1 is 0
 
@@ -120,6 +126,16 @@ int SllNodeTest(bool verb)
     cout << endl
          << endl;
 
+    int i = 1;
+    testNode1.setData(&i);
+
+    float f = 3.14159;
+    testNode2.setData(&f);
+
+    string s = "Hello World!";
+    testNode3.setData(&s);
+
+    
     if (verb)
     {
         cout << "testNode 1 - " << testNode1.to_string() << endl;
